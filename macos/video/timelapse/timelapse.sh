@@ -13,11 +13,3 @@ function timelapse(){
   now=$(date +%Y-%m-%d_%H-%M)
   ffmpeg -framerate 1 -f avfoundation -i 1 -r 30 -vf "settb=\(1/60\),setpts=N/TB/60" -vcodec libx264 -crf 0 -preset ultrafast -threads 0 $dest/$now.mp4
 }
-
-main(){
-  timelapse $1
-}
-
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    main "$@"
-fi
