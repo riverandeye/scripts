@@ -6,7 +6,7 @@ function timelapse(){
   if [ $# -eq 0 ]
   then
     echo "Usage : $0 <output_destination>"
-    exit 1
+    return 1
   fi
   dest=$1
 
